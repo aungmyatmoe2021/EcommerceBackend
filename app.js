@@ -6,6 +6,7 @@ const category = require('./database/category');
 const product = require('./database/product');
 const user = require('./database/user');
 const gallery = require('./database/gallery');
+let passwordGenerator = require('./helper/passwordgenerator');
 
 const seed = require('./database/seed');
 
@@ -110,12 +111,29 @@ const catObj = {
 //   .then(res => console.log(res))
 //   .catch(err => console.log(err));
 
-let objGallery = {
-  name: 'car.png',
-};
+// let objGallery = {
+//   name: 'car.png',
+// };
 
-gallery
-  .save(objGallery)
+// gallery
+//   .save(objGallery)
+//   .then(res => console.log(res))
+//   .catch(err => console.log(err));
+
+// gallery
+//   .all()
+//   .then(res => console.log(res))
+//   .catch(err => console.log(err));
+
+// passwordGenerator
+//   .encrypt('123123')
+//   .then(res => console.log(res))
+//   .catch(err => console.log(err));
+passwordGenerator
+  .compare(
+    '123123',
+    '$2a$10$oi6bfR47YNOuOanUj64JEuylhKwqI6UiOJgRnh8aecmnpuW55Jgh2'
+  )
   .then(res => console.log(res))
   .catch(err => console.log(err));
 
