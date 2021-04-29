@@ -3,8 +3,10 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const category = require('./database/category');
-const { Product } = require('./database/db');
 const product = require('./database/product');
+const user = require('./database/user');
+const gallery = require('./database/gallery');
+
 const seed = require('./database/seed');
 
 const catObj = {
@@ -37,13 +39,13 @@ const catObj = {
 // seed.seedCategory();
 
 // Product Section //
-let obj = {
-  cat_id: 1,
-  name: 'carrrrrrrr',
-  price: 3000,
-  image: 'corderrrrrr.png',
-  description: 'No Desc',
-};
+// let obj = {
+//   cat_id: 1,
+//   name: 'carrrrrrrr',
+//   price: 3000,
+//   image: 'corderrrrrr.png',
+//   description: 'No Desc',
+// };
 
 // product
 //   .save(obj)
@@ -77,8 +79,43 @@ let obj = {
 //   .then(res => console.log(res))
 //   .catch(err => console.log(err));
 
-product
-  .paginate(5, 50)
+// product
+//   .paginate(5, 50)
+//   .then(res => console.log(res))
+//   .catch(err => console.log(err));
+
+// let userObj = {
+//   name: 'Aung Myat Moe',
+//   email: 'aungmyatmoe2021@gmail.com',
+//   password: '123123',
+// };
+
+// user
+//   .save(userObj)
+//   .then(res => console.log(res))
+//   .catch(err => console.log(err));
+
+// user
+//   .all()
+//   .then(res => console.log(res))
+//   .catch(err => console.log(err));
+
+// user
+//   .findById('608a683e9a7840174c4e6df0')
+//   .then(res => console.log(res))
+//   .catch(err => console.log(err));
+
+// user
+//   .findByEmail('aungmyatmoe2021@gmail.com')
+//   .then(res => console.log(res))
+//   .catch(err => console.log(err));
+
+let objGallery = {
+  name: 'car.png',
+};
+
+gallery
+  .save(objGallery)
   .then(res => console.log(res))
   .catch(err => console.log(err));
 

@@ -32,12 +32,29 @@ const ProductSchema = new Schema({
   since: { type: Date, required: true },
 });
 
+const UserSchema = new Schema({
+  name: { type: String, required: true },
+  email: { type: String, required: true },
+  password: { type: String, required: true },
+  since: { type: Date, required: true },
+});
+
+const GallerySchema = new Schema({
+  name: { type: String, required: true },
+  since: { type: Date, required: true },
+});
+
 const Category = mongoose.model('category', CategorySchema);
 ProductSchema.plugin(autoicrement.plugin, 'product');
 ProductSchema.plugin(mongoosePaginate);
 const Product = mongoose.model('product', ProductSchema);
+const User = mongoose.model('user', UserSchema);
+GallerySchema.plugin(autoicrement.plugin, 'gallery');
+const Gallery = mongoose.model('gallery', GallerySchema);
 
 module.exports = {
   Category,
   Product,
+  User,
+  Gallery,
 };
